@@ -35,10 +35,9 @@ def draw():
     pygame.draw.rect(screen, (0, 0, 0), [40, 20, 200, 30], 2)
 
     # Check for spacebar to start movement
-    for event in pygame.event.get():
-        if event.type == KEYDOWN:
-            if event.key == K_SPACE and not movement_started:
-                movement_started = True
+    if app.getKey("SPACE") and not movement_started:
+        movement_started = True
+        automated_movement()
                 automated_movement()
 
 def automated_movement():
